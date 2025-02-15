@@ -21,7 +21,7 @@ impl Level {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("src/assets/Roboto-Regular.ttf", 128)
+            .load_font("../assets/Roboto-Regular.ttf", 128)
             .unwrap();
 
         let surface = font.render(&level_string).blended(white).unwrap();
@@ -50,7 +50,7 @@ impl Level {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("src/assets/Roboto-Regular.ttf", 128)
+            .load_font("../assets/Roboto-Regular.ttf", 128)
             .unwrap();
         let score_string = "Score".to_string();
 

@@ -16,7 +16,7 @@ impl Gameend {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("src/assets/Roboto-Regular.ttf", 128)
+            .load_font("../assets/Roboto-Regular.ttf", 128)
             .unwrap();
         let score_string = "Game Over".to_string();
 
