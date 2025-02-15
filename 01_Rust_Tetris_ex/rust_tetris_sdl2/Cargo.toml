@@ -1,0 +1,11 @@
+[package]
+name = "rust_tetris_sdl2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lazy_static = "1.5.0"
+rand = "0.9.0"
+sdl2 = { version = "0.37.0", features = ["ttf", "image"] }
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.138"
