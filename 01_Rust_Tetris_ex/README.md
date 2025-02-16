@@ -2,9 +2,28 @@
 - (Dec 3, 2018)WindowsOS(Visual Studio)로 개발한 프로젝트라 (윈도우 개발자라면 참고하기 좋다.)
   - https://github.com/bigOconstant/RustTetris/
 
-# 윈도우 개발시 (build.rs)세팅
+# 윈도우 개발시 `build.rs` & `Cargo.toml`세팅
 - https://github.com/bigOconstant/RustTetris/
 
+- `Cargo.toml`
+```toml
+[package]
+name = "rusttetris"
+version = "0.1.0"
+authors = ["Caleb McCarthy <caleb.a.mccarthy@gmail.com>"]
+build="build.rs"
+
+[dependencies]
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+lazy_static = "1.1.0"
+rand = "0.3"
+sdl2 = { version = "0.32.0", features = ["ttf","image"] }
+```
+
+
+- `build.rs`
 ```rs
 use std::env;
 use std::path::PathBuf;
