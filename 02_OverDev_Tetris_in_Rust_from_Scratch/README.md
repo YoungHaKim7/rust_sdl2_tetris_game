@@ -7,9 +7,4 @@
   - https://github.com/Broderick-Westrope/tetrigo/blob/main/docs/2009-Tetris-Design-Guideline.pdf
 
 - https://tetris.wiki/Tetris_Guideline
-# Result
-
-```bash
-
-```
 
