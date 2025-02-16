@@ -17,10 +17,16 @@ impl Bdimentions {
             unit_size: height / 22,
             left: (width / 2) - (5 * (height / 22)),
             right: (width / 2) + (5 * (height / 22)),
-            bottom: height - (1 * (height / 22)),
+            bottom: height - (height / 22),
             top: height - (21 * (height / 22)),
             width,
             height,
         }
+    }
+}
+
+impl Default for Bdimentions {
+    fn default() -> Self {
+        Self::new()
     }
 }

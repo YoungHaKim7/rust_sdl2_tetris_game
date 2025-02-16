@@ -181,8 +181,10 @@ impl Board {
         let shape = &self.players[0].get_shape();
         let col = self.players[0].col;
         let row = self.players[0].row;
+        #[allow(unused_variables)]
         let mut icount = 0;
         for i in 0..shape.len() {
+            #[allow(unused_variables)]
             let mut jcount = 0;
             for j in 0..shape[i].len() {
                 if shape[i][j] == 1 {
@@ -378,5 +380,11 @@ impl Board {
         if self.end {
             end_screen.draw_end(canvas);
         }
+    }
+}
+
+impl Default for Board {
+    fn default() -> Self {
+        Self::new()
     }
 }
