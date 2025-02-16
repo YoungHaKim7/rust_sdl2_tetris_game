@@ -127,8 +127,7 @@ impl Board {
                 self.draw_a_player();
             }
         } else {
-            self.draw_a_player();
-            return;
+            self.draw_a_player()
         }
     }
 
@@ -193,9 +192,9 @@ impl Board {
                     self.bmatrix[row_address][col_address].color = blue;
                     self.bmatrix[row_address][col_address].occupied = false;
                 }
-                jcount = jcount + 1;
+                jcount += 1;
             }
-            icount = icount + 1;
+            icount += 1;
         }
     }
 
@@ -219,14 +218,14 @@ impl Board {
                 }
             }
         }
-        return true;
+        true
     }
 
     pub fn is_occupied(&self, play: player::Player) -> bool {
         // do I fit should have already been called
         let shape = play.get_shape();
-        let col = play.col.clone();
-        let row = play.row.clone();
+        let col = play.col;
+        let row = play.row;
 
         for i in 0..shape.len() {
             for j in 0..shape[i].len() {
