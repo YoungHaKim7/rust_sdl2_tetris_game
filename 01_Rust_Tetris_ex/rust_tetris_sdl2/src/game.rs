@@ -62,7 +62,7 @@ impl Game {
         let mut fall_time = timer.ticks() as i32;
         let mut event_pump = sdl_context.event_pump().unwrap();
 
-        let frame_delay = 1000 / GAMEDATA.fps as i32;
+        let frame_delay = 1000 / GAMEDATA.fps;
 
         let mut running = true;
         let mut board = board::Board::new();
@@ -106,9 +106,6 @@ impl Game {
                         }
                         7 => {
                             if start {
-                                start = !start;
-                                playing = !playing;
-                            } else {
                                 start = !start;
                                 playing = !playing;
                             }
@@ -198,9 +195,6 @@ impl Game {
                         ..
                     } => {
                         if start {
-                            start = !start;
-                            playing = !playing;
-                        } else {
                             start = !start;
                             playing = !playing;
                         }

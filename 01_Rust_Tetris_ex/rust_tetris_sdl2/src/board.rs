@@ -243,7 +243,7 @@ impl Board {
             }
         }
 
-        return false;
+        false
     }
 
     pub fn draw_a_player(&mut self) {
