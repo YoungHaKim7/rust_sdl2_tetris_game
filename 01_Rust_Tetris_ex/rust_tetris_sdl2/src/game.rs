@@ -243,7 +243,7 @@ impl Game {
             //board.level_text = "level"
             //earned_level = 15;
 
-            let iteration_delay = ((11.0 - earned_level as f32) as f32 * 0.05) * 1000.0;
+            let iteration_delay = ((11.0 - earned_level as f32) * 0.05) * 1000.0;
 
             if (ticks - fall_time) as f32 > iteration_delay {
                 falling = true;

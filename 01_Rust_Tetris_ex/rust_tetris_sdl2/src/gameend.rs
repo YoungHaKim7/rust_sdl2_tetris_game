@@ -2,10 +2,17 @@ use sdl2::{rect::Rect, render::TextureQuery};
 
 use crate::bdimentions;
 
-pub struct Gameend {}
+pub struct Gameend;
+
+impl Default for Gameend {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Gameend {
-    pub fn new() -> Gameend {
-        Gameend {}
+    pub fn new() -> Self {
+        Self {}
     }
 
     pub fn draw_end(&self, canvas: &mut sdl2::render::WindowCanvas) {
@@ -27,20 +34,20 @@ impl Gameend {
 
         let TextureQuery { width, height, .. } = texture.query();
         let target = Rect::new(
-            (dimentions.left + 4) as i32,
+            dimentions.left + 4,
             dimentions.top + dimentions.unit_size * 4,
-            width / 2 - 2 as u32,
-            height / 2 as u32,
+            width / 2 - 2_u32,
+            height / 2_u32,
         );
         let wider_target_border = Rect::new(
-            (dimentions.left) as i32,
+            dimentions.left,
             dimentions.top + dimentions.unit_size * 4 - 2,
             322,
             104,
         );
 
         let wider_target = Rect::new(
-            (dimentions.left + 3) as i32,
+            dimentions.left + 3,
             dimentions.top + dimentions.unit_size * 4,
             316,
             100,

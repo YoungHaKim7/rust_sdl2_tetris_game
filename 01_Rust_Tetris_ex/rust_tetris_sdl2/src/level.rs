@@ -4,6 +4,12 @@ use crate::bdimentions;
 
 pub struct Level {}
 
+impl Default for Level {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Level {
     pub fn new() -> Level {
         Level {}
@@ -31,10 +37,10 @@ impl Level {
 
         let TextureQuery { width, height, .. } = texture.query();
         let target = Rect::new(
-            (dimentions.left - dimentions.unit_size * 6) as i32,
+            dimentions.left - dimentions.unit_size * 6,
             dimentions.top - 10,
-            width / 3 as u32,
-            height / 3 as u32,
+            width / 3_u32,
+            height / 3_u32,
         );
         canvas.set_draw_color(yellow);
         canvas.copy(&texture, None, Some(target)).unwrap();
