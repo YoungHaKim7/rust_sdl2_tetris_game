@@ -14,8 +14,13 @@ pub struct Player {
     pub first_move:bool,
 }
 
-impl Player{
+impl Default for Player {
+    fn default() -> Self {
+         Self::new()
+    }
+}
 
+impl Player{
     pub fn decr(&mut self){
         self.row += 1;
     }
@@ -293,26 +298,22 @@ impl Player{
 
     pub fn get_shape(&self)-> Vec<Vec<i32>>{
         match self.shape_state {
-            1 =>  return self.shape2.clone(),
-            2 =>  return self.shape3.clone(),
-            3 => return  self.shape4.clone(),
-            _ => return self.shape.clone(),
+            1 => self.shape2.clone(),
+            2 => self.shape3.clone(),
+            3 => self.shape4.clone(),
+            _ => self.shape.clone(),
         }
     }
 
     pub fn get_col(self)->i32{
-        let col = self.col;
-        col
+        self.col
     }
     pub fn get_row(self)->i32{
-       let row = self.row;
-       row
+        self.row
     }
 
     pub fn get_color(self)->sdl2::pixels::Color{
-        let color = self.color;
-        color
+        self.color
     }
-
-
 }
+

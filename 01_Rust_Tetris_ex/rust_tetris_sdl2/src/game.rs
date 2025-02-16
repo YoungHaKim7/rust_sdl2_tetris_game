@@ -3,7 +3,7 @@ use std::{path::Path, time::Duration};
 
 use crate::{board, startmenu, GAMEDATA};
 
-pub struct Game;
+pub struct Game {}
 
 impl Game {
     pub fn run_game(&self) {
@@ -49,7 +49,7 @@ impl Game {
                 .expect("woops full screen didn't work");
         }
 
-        let icon = sdl2::surface::Surface::load_bmp(Path::new("../assets/tetris.bmp")).unwrap();
+        let icon = sdl2::surface::Surface::load_bmp(Path::new("src/assets/tetris.bmp")).unwrap();
         window.set_icon(icon);
 
         let mut canvas = window.into_canvas().accelerated().build().unwrap();
@@ -71,7 +71,6 @@ impl Game {
         let mut start = true;
         let mut playing = false;
 
-        #[allow(unused_variables)]
         while running {
             let ticks = timer.ticks() as i32;
             for event in event_pump.poll_iter() {
@@ -142,6 +141,7 @@ impl Game {
 
                         _ => {}
                     },
+                    #[allow(unused_variables)]
                     Event::JoyHatMotion { hat_idx, state, .. } => match state {
                         sdl2::joystick::HatState::Up => {
                             if playing && !board.end {

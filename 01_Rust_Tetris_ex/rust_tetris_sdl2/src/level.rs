@@ -21,7 +21,7 @@ impl Level {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("../assets/Roboto-Regular.ttf", 128)
+            .load_font("src/assets/Roboto-Regular.ttf", 128)
             .unwrap();
 
         let surface = font.render(&level_string).blended(white).unwrap();
@@ -50,7 +50,7 @@ impl Level {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("../assets/Roboto-Regular.ttf", 128)
+            .load_font("src/assets/Roboto-Regular.ttf", 128)
             .unwrap();
         let score_string = "Score".to_string();
 
@@ -61,10 +61,10 @@ impl Level {
 
         let TextureQuery { width, height, .. } = texture.query();
         let target = Rect::new(
-            (dimentions.left - dimentions.unit_size * 6) as i32,
+            dimentions.left - dimentions.unit_size * 6,
             dimentions.top + dimentions.unit_size * 2,
-            width / 3 as u32,
-            height / 3 as u32,
+            width / 3_u32,
+            height / 3_u32,
         );
         canvas.set_draw_color(yellow);
         canvas.copy(&texture, None, Some(target)).unwrap();
@@ -78,10 +78,10 @@ impl Level {
 
         // let mut number_target = Rect::new((dimentions.left - dimentions.unit_size *6) as i32,dimentions.top+dimentions.unit_size * 5,width/3 as u32,height/2 as u32);
         let number_target = Rect::new(
-            (dimentions.left - dimentions.unit_size * 6) as i32,
+            dimentions.left - dimentions.unit_size * 6,
             dimentions.top + dimentions.unit_size * 4,
-            width / 3 as u32,
-            height / 3 as u32,
+            width / 3_u32,
+            height / 3_u32,
         );
         canvas.set_draw_color(yellow);
         canvas.copy(&texture, None, Some(number_target)).unwrap();

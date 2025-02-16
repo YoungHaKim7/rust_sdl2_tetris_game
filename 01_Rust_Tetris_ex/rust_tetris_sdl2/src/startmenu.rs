@@ -20,7 +20,7 @@ impl Startmenu {
         // Load a font
         let ttf_context = sdl2::ttf::init().unwrap();
         let font = ttf_context
-            .load_font("../assets/Roboto-Regular.ttf", 128)
+            .load_font("src/assets/Roboto-Regular.ttf", 128)
             .unwrap();
         let banner = "Press Enter to Play".to_string();
         let surface = font.render(&banner).blended(white).unwrap();
@@ -31,15 +31,15 @@ impl Startmenu {
         let texture_creator = canvas.texture_creator();
         let TextureQuery { width, height, .. } = texture.query();
         let target = Rect::new(
-            (dimentions.left - dimentions.unit_size * 4) as i32,
+            dimentions.left - dimentions.unit_size * 4,
             dimentions.top + dimentions.unit_size * 3,
-            width / 2 as u32,
-            height / 2 as u32,
+            width / 2_u32,
+            height / 2_u32,
         );
         canvas.set_draw_color(yellow);
 
         let texturewolf = texture_creator
-            .load_texture(Path::new("../assets/wolf.png"))
+            .load_texture(Path::new("src/assets/wolf.png"))
             .unwrap();
 
         #[allow(unused_variables)]
@@ -78,5 +78,11 @@ impl Startmenu {
                 false,
             )
             .unwrap();
+    }
+}
+
+impl Default for Startmenu {
+    fn default() -> Self {
+        Self::new()
     }
 }
