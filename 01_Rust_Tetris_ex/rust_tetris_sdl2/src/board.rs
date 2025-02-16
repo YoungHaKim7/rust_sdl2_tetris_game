@@ -202,8 +202,8 @@ impl Board {
 
     pub fn do_i_fit(&self, play: &player::Player) -> bool {
         let shape = play.get_shape();
-        let col = play.col.clone();
-        let row = play.row.clone();
+        let col = play.col;
+        let row = play.row;
 
         for i in 0..shape.len() {
             for j in 0..shape[i].len() {

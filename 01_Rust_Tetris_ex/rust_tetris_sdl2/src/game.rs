@@ -21,12 +21,13 @@ impl Game {
 
         //println!("{} joysticks available", available);
         #[allow(unused_variables)]
-        let mut joystick = None;
+        let joystick: Option<sdl2::joystick::Joystick> = None;
         for id in 0..available {
             match joystick_subsystem.open(id) {
                 Ok(c) => {
                     //println!("Success: opened \"{}\"", c.name());
-                    joystick = Some(c);
+                    // let joystick = Some(c);
+                    Some(c);
                     break;
                 }
                 Err(_e) => {} //println!("failed: {:?}", e),
