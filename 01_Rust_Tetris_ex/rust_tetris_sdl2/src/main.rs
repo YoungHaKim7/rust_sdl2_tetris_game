@@ -23,6 +23,6 @@ pub mod player;
 pub mod startmenu;
 
 fn main() {
-    let game = game::Game {};
+    let game = game::Game;
     game.run_game();
 }

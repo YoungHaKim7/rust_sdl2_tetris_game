@@ -3,7 +3,7 @@ use std::{path::Path, time::Duration};
 
 use crate::{board, startmenu, GAMEDATA};
 
-pub struct Game {}
+pub struct Game;
 
 impl Game {
     pub fn run_game(&self) {
@@ -20,6 +20,7 @@ impl Game {
         };
 
         //println!("{} joysticks available", available);
+        #[allow(unused_variables)]
         let mut joystick = None;
         for id in 0..available {
             match joystick_subsystem.open(id) {
@@ -28,7 +29,7 @@ impl Game {
                     joystick = Some(c);
                     break;
                 }
-                Err(e) => {} //println!("failed: {:?}", e),
+                Err(_e) => {} //println!("failed: {:?}", e),
             }
         }
 
@@ -57,7 +58,7 @@ impl Game {
             .set_logical_size(1280, 720)
             .expect("could not set logical size");
 
-        let mut timer = sdl_context.timer().unwrap();
+        let timer = sdl_context.timer().unwrap();
         let mut fall_time = timer.ticks() as i32;
         let mut event_pump = sdl_context.event_pump().unwrap();
 
@@ -70,6 +71,7 @@ impl Game {
         let mut start = true;
         let mut playing = false;
 
+        #[allow(unused_variables)]
         while running {
             let ticks = timer.ticks() as i32;
             for event in event_pump.poll_iter() {

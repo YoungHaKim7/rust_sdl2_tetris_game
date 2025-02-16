@@ -42,13 +42,14 @@ impl Startmenu {
             .load_texture(Path::new("../assets/wolf.png"))
             .unwrap();
 
+        #[allow(unused_variables)]
         let frames_per_anim = 6;
-        let mut sprite_tile_size = (100, 70);
+        let sprite_tile_size = (100, 70);
 
         let mut source_rect_0 = Rect::new(25, 155, sprite_tile_size.0, sprite_tile_size.1);
-        let mut dest_rect_0 = Rect::new(10, 10, sprite_tile_size.0, sprite_tile_size.1);
+        let dest_rect_0 = Rect::new(10, 10, sprite_tile_size.0, sprite_tile_size.1);
 
-        let mut timer = context.timer().unwrap();
+        let timer = context.timer().unwrap();
 
         let ticks = timer.ticks() as i32;
         let seconds = ticks / 250;
